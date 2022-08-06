@@ -29,14 +29,14 @@ skipPosts=0;
     this.queryParam = `?take=${this.numberOfPosts}&skip=${this.skipPosts}`;
 
  this.postService.getSelectedPosts(this.queryParam).subscribe((posts: Post[])=>{
-  for(let post =0; post < posts.length; post++){
-  this.allLoadedPosts.push(posts[post])
+  for (let post =0; post < posts.length; post++){
+  this.allLoadedPosts.push(posts[post]);
 }
-if(isInitialLoad) event.target.complete;
+if(isInitialLoad) event.target.complete();
 this.skipPosts=this.skipPosts + 5;
  },(error)=>{
   console.log(error);
- })
+ });
   }
 loadData(event){
 this.getPosts(true, event);
